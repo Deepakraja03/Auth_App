@@ -26,6 +26,7 @@ export default function Profile() {
   const [imageError, setImageError] = useState(false);
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const baseUrl = 'https://authapp-backend.vercel.app';
 
   const { currentUser, loading, error } = useSelector((state) => state.user);
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`http://localhost:3000/user/update/${currentUser._id}`, {
+      const res = await fetch(`${baseUrl}/user/update/${currentUser._id}`, {
         method: 'POST',
         credentials: 'include',
         secure: 'false',

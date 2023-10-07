@@ -7,7 +7,7 @@ export default function SignUp() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const baseUrl = 'http://localhost:3000';
+  const baseUrl = 'https://authapp-backend.vercel.app';
   const handleChange = (e) => {
     setFormData({ ...formdata, [e.target.id]: e.target.value});
   }

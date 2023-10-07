@@ -11,6 +11,7 @@ import OAuth from '../components/OAuth';
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
+  const baseUrl = 'https://authapp-backend.vercel.app'
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('http://localhost:3000/auth/signin', {
+      const res = await fetch(`${baseUrl}/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
